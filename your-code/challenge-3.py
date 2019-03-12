@@ -12,19 +12,20 @@ The following function shows one way to solve the problem but the code is not id
 Refactor the code based on what you have learned about code simplicity and efficiency.
 """
 
-def my_function(X):
+
+def my_function(MaxLenghtTriangle):
     solutions = []
-    for x in range(5, X):
-        for y in range(4, X):
-            for z in range(3, X):
-                if (x*x==y*y+z*z):
-                  solutions.append([x, y, z])
-    m = 0
+    for x in range(5, MaxLenghtTriangle):
+        for y in range(4, MaxLenghtTriangle):
+            for z in range(3, MaxLenghtTriangle):
+                if x * x == y * y + z * z:
+                    solutions.append([x, y, z])
+    RandomVar = 0
     for solution in solutions:
-        if m < max(solution):
-            m = max(solution)
-    return m
+        if RandomVar < max(solution):
+            RandomVar = max(solution)
+    return RandomVar
 
-X = input("What is the maximal length of the triangle side? Enter a number: ")
+MaxLenghtTriangle = input("What is the maximal length of the triangle side? Enter a number: ")
 
-print("The longest side possible is " + str(my_function(int(X))))
+print("The longest side possible is " + str(my_function(int(MaxLenghtTriangle))))
