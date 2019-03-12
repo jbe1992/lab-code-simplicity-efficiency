@@ -21,16 +21,11 @@ sum_dict = {'zero': 0, 'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 1: 
             -3: 'negative three', -4: 'negative four', -5: 'negative five'}
 
 
-def calculate(number1,operator,number2):
+def calculate(number1, operator, number2):
+    result = ""
     if operator == 'plus':
-        if sum_dict[number1] + sum_dict[number2] > 5:
-            result = sum_dict[sum_dict[number1] + sum_dict[number2]]
-        else:
             result = sum_dict[sum_dict[number1] + sum_dict[number2]]
     elif operator == 'minus':
-        if sum_dict[number1] < sum_dict[number2]:
-            result = sum_dict[sum_dict[number1] - sum_dict[number2]]
-        else:
             result = sum_dict[sum_dict[number1] - sum_dict[number2]]
     else:
         print('Error. You should select a correct operator.')
