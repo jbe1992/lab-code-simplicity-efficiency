@@ -6,33 +6,38 @@ the strings being generated.
 The code is functional but has a lot of room for improvement. Use what you have learned
 about simple and efficient code, refactor the code.
 """
+import string
+from random import choice
+from sys import exit
 
-def RandomStringGenerator(l=12, a=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9']):
-    p = 0
-    s = ''
-    while p<l:
-        import random
-        s += random.choice(a)
-        p += 1
-    return s
+a = string.ascii_lowercase + '0123456789'
 
-def BatchStringGenerator(n, a=8, b=12):
-    r = []
-    for i in range(n):
-        c = None
-        if a < b:
-            import random
-            c = random.choice(range(a, b))
-        elif a == b:
-            c = a
+
+def RandomStringGenerator(lenght=12):
+    counter = 0
+    StringGenerated = ''
+    while counter < lenght:
+        StringGenerated += choice(a)
+        counter += 1
+    return StringGenerated
+
+
+def BatchStringGenerator(StringsNumber, LenghtMin=8, LenghtMax=12):
+    List = []
+    TempVar = 0
+    for counter in range(StringsNumber):
+        if LenghtMin < LenghtMax:
+            TempVar = choice(range(LenghtMin, LenghtMax))
+        elif LenghtMin == LenghtMax:
+            TempVar = LenghtMin
         else:
-            import sys
-            sys.exit('Incorrect min and max string lengths. Try again.')
-        r.append(RandomStringGenerator(c))
-    return r
+            exit('Incorrect min and max string lengths. Try again.')
+        List.append(RandomStringGenerator(TempVar))
+    return List
 
-a = input('Enter minimum string length: ')
-b = input('Enter maximum string length: ')
-n = input('How many random strings to generate? ')
 
-print(BatchStringGenerator(int(n), int(a), int(b)))
+LenghtMin = input('Enter minimum string length: ')
+LenghtMax = input('Enter maximum string length: ')
+StringsNumber = input('How many random strings to generate? ')
+
+print(BatchStringGenerator(int(StringsNumber), int(LenghtMin), int(LenghtMax)))
