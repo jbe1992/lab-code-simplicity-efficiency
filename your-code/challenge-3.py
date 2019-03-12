@@ -26,6 +26,7 @@ def my_function(MaxLenghtTriangle):
             RandomVar = max(solution)
     return RandomVar
 
+
 MaxLenghtTriangle = input("What is the maximal length of the triangle side? Enter a number: ")
 
 print("The longest side possible is " + str(my_function(int(MaxLenghtTriangle))))
